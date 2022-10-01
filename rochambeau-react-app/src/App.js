@@ -6,7 +6,7 @@ export default function App() {
     <div className="App">
       <div className="container">
         <h1>ROCHAMBEAU</h1>
-        <button>START GAME</button>
+        <button type="button" class="btn btn-primary">START GAME</button>
       </div>
     </div>
   );
