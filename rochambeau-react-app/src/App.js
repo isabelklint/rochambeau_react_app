@@ -5,7 +5,8 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <h2>Some game</h2>
+        <h1>ROCHAMBEAU</h1>
+        <button>START GAME</button>
       </div>
     </div>
   );
