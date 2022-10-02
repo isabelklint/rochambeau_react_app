@@ -1,12 +1,14 @@
 import React from "react";
 import "./App.css";
 import Game from "./Game.js";
+import Rules from "./Rules.js"
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
         <h1>ROCHAMBEAU</h1>
+        <Rules />
         <Game defaultGame="NEW GAME" />
       </div>
     </div>
