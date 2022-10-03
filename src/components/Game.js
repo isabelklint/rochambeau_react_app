@@ -6,7 +6,8 @@ const Game = () => {
   const [userSelection, setUserSelection] = useState(null);
   const [finalOutput, setFinalOutput] = useState(null);
   const selection = ["🧱", "📰", "✂️", "🦎", "🖖"];
-
+  const [you,setYourScore]=useState(0)
+  const [me,setComputerScore]=useState(0)
   const clickHandler = (value) => {
     setUserSelection(value);
     randomChoiceGenerator();
@@ -31,6 +32,7 @@ const Game = () => {
         case "✂️🦎":
         case "🦎🖖":
           setFinalOutput("YOU WON! 🎉");
+          setYourScore(you+1);
           break;
         case "📰✂️":
         case "✂️🧱":
@@ -43,6 +45,7 @@ const Game = () => {
         case "🦎✂️":
         case "🖖🦎":
           setFinalOutput("YOU LOSE! 👎 ");
+          setComputerScore(me+1);
           break;
         case "🧱🧱":
         case "📰📰":
@@ -76,6 +79,7 @@ const Game = () => {
           </div>
         </div>
         <h2>{finalOutput} </h2>
+        <h2>{you + " " + me}</h2>
 
         <div className="attack-btn">
           {selection.map((select, index) => (
