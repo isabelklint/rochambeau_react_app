@@ -4,16 +4,10 @@
     border-radius: 8px;
     font-family: BarlowSemiCondensedBold;
     font-weight: 700;
-    color: white;
+    color: #885DF3;
     font-size: 22px;
     line-height: 22px;
 }
-
-.advancedOptions {
-    font-size: 15px;
-    line-height: 15px;
-}
-
 
 .score-container {
     background-color: white;
