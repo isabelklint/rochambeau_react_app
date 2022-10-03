@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import Rules from "./Rules.js"
-import Header from "./components/Header";
+import Game from "./components/Game.js"
+import Header from "./components/Header.js";
 
 export default function App() {
   return (
@@ -9,7 +9,7 @@ export default function App() {
       <div className="container">
         <h1>ROCHAMBEAU</h1>
         <Header />
-        <Rules />
+        <Game />
       </div>
     </div>
   );

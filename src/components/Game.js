@@ -1,24 +1,92 @@
-import React, { useState } from "react";
-import Round from "./Round.js";
+import React, { useEffect, useState } from "react";
 import "./Game.css";
 
+const Game = () => {
+  const [computerSelection, setComputerSelection] = useState(null);
+  const [userSelection, setUserSelection] = useState(null);
+  const [finalOutput, setFinalOutput] = useState(null);
+  const selection = ["🧱", "📰", "✂️", "🦎", "🖖"];
 
-function Game() {
-  const [isShown, setIsShown] = useState(false);
+  const clickHandler = (value) => {
+    setUserSelection(value);
+    randomChoiceGenerator();
+  };
 
-    const handleClick = event => {
-      setIsShown(true);
-    };
+  const randomChoiceGenerator = () => {
+    const randomSelection =
+      selection[Math.floor(Math.random() * selection.length)];
+    setComputerSelection(randomSelection);
+  };
 
-    return (
+  useEffect(() => {
+      switch (userSelection + computerSelection) {
+        case "✂️📰":
+        case "🧱✂️":
+        case "📰🧱":
+        case "🦎📰":
+        case "🖖✂️":
+        case "🧱🦎":
+        case "📰🖖":
+        case "🖖🧱":
+        case "✂️🦎":
+        case "🦎🖖":
+          setFinalOutput("YOU WON! 🎉");
+          break;
+        case "📰✂️":
+        case "✂️🧱":
+        case "🧱📰":
+        case "📰🦎":
+        case "✂️🖖":
+        case "🦎🧱":
+        case "🖖📰":
+        case "🧱🖖":
+        case "🦎✂️":
+        case "🖖🦎":
+          setFinalOutput("YOU LOSE! 👎 ");
+          break;
+        case "🧱🧱":
+        case "📰📰":
+        case "✂️✂️":
+        case "🦎🦎":
+        case "🖖🖖":
+          setFinalOutput("ITS A DRAW! 💥 ");
+          break;
+        default:
+          break;
+      }
+  }, [computerSelection, userSelection]);
+
+  return (
+    <>
+      <h1>Rock Paper Scissors lizard Spock</h1>
       <div>
-      <button type="button" class="btn btn-primary" onClick={handleClick}>START GAME</button>
-        {isShown && (
-          <div><h3>CHOOSE ONE:</h3></div>
-        )}
-      {isShown && <Round />}
-      </div>
-      );
-    }
+        <div className="container">
+          <div className="section">
+            <div className="info">
+              <h3>You</h3>
+            </div>
+            <div className="show">{userSelection}</div>
+          </div>
 
-  export default Game;
+          <div className="section">
+            <div className="info">
+              <h3>Computer</h3>
+            </div>
+            <div className="show computer">{computerSelection}</div>
+          </div>
+        </div>
+        <h2>{finalOutput} </h2>
+
+        <div className="attack-btn">
+          {selection.map((select, index) => (
+            <button key={index} onClick={() => clickHandler(select)}>
+              {select}
+            </button>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Game;
