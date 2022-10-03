@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Round from "../Round.js";
+import Round from "./Round.js";
 import "./Game.css";
 
 
