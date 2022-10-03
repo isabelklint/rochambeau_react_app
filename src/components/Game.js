@@ -61,11 +61,17 @@ const Game = () => {
 
   return (
     <>
-      <h1>Rock Paper Scissors lizard Spock</h1>
       <div>
         <div className="container">
           <div className="section">
             <div className="info">
+            <div className="attack-btn">
+          {selection.map((select, index) => (
+            <button key={index} onClick={() => clickHandler(select)}>
+              {select}
+            </button>
+          ))}
+        </div>
               <h3>You</h3>
             </div>
             <div className="show">{userSelection}</div>
@@ -78,15 +84,14 @@ const Game = () => {
             <div className="show computer">{computerSelection}</div>
           </div>
         </div>
+        <div>
         <h2>{finalOutput} </h2>
         <h2>{you + " " + me}</h2>
-
-        <div className="attack-btn">
-          {selection.map((select, index) => (
-            <button key={index} onClick={() => clickHandler(select)}>
-              {select}
+      </div>
+      <div className="reset-btn">
+            <button>
+              RESET SCORE
             </button>
-          ))}
         </div>
       </div>
     </>

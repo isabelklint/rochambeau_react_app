@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>ROCHAMBEAU</h1>
+      <h1>Rock Paper Scissors lizard Spock</h1>
         <Header />
         <Game />
       </div>
